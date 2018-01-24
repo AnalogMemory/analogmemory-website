@@ -58,8 +58,6 @@ class ContactForm extends Component {
   }
 
   render() {
-    Modal.setAppElement('#___gatsby')
-
     return (
       <div>
         <form action="/contact/"
@@ -89,6 +87,7 @@ class ContactForm extends Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
+          ariaHideApp={false}
           style={customStyles}
           contentLabel="Thanks"
         > <a onClick={this.closeModal}>X</a>
