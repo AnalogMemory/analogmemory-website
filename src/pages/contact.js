@@ -6,7 +6,7 @@ const ContactPage = props => {
   return (
     <div>
       <h1>{page.title}</h1>
-      <ContactForm/>
+      <ContactForm thankYouMessage={`Thanks for your message, We’ll get back to you soon!`} />
     </div>
   )
 }
