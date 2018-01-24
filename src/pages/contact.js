@@ -5,7 +5,12 @@ const ContactPage = props => {
   return (
     <div>
       <h1>{page.title}</h1>
-      <form action={`/contact/?success=true`} name={`contact`} data-netlify="true">
+      <form action="/contact/?success=true" 
+            name="contact"
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
         <p>
           <label>Your Name: <input type="text" name="name" /></label>
         </p>
