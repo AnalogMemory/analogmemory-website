@@ -9,10 +9,17 @@ const HeaderContainer = styled.header`
   text-align: center;
   background-color: transparent;
   display: flex;
-  margin: 0;
+  margin: 0 auto;
   align-items: center;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 100;
+
+  @media (max-width: 768px) {
+    position: relative;
+    margin: 2rem auto;
+  }
 `
 const HeaderInner = styled.div`
   max-width: 90rem;
@@ -28,11 +35,18 @@ const HeaderInner = styled.div`
 const Masthead = styled.figure`
   display: block;
   width: 100%;
-  max-width: 192px;
-  margin: 0;
+  height: 112px;
+  margin: 0 auto;
+
+  a {
+    display: block;
+    cursor: default;
+  }
 
   svg {
-    fill: #000;
+    width: auto;
+    height: 100%;
+    fill: #fff;
   }
 `
 
@@ -41,9 +55,7 @@ const Header = ({ data }) => {
     <HeaderContainer>
       <HeaderInner>
         <Masthead>
-          <Link to="/">
-            <SVG src={logoFile} />
-          </Link>
+          <SVG src={logoFile} />
         </Masthead>
       </HeaderInner>
     </HeaderContainer>

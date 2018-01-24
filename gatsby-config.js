@@ -9,6 +9,14 @@ module.exports = {
         anonymize: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Open Sans\:300`
+        ]
+      }
+    },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-react-next`,
@@ -20,6 +28,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_DELIVERY_API_TOKEN
       }
-    }
+    },
+    `gatsby-transformer-remark`
   ]
 }
