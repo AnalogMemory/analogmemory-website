@@ -22,10 +22,10 @@ body {
   background: #16A085;
   background: -webkit-linear-gradient(to right, #F4D03F, #16A085);
   background: linear-gradient(to right, #F4D03F, #16A085);
-  min-height: 100vh;
+  min-height: 0;
 
-  @media (max-width: 768px) {
-    min-height: 0;
+  @media ($medium-screen-up) {
+    min-height: 100vh;
   }
 }
 
@@ -50,7 +50,11 @@ h6 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+
+  @media ($medium-screen-up) {
+    font-size: 3rem;
+  }
 }
 h2 {
   font-size: 2.5rem;

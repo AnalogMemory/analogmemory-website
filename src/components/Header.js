@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import SVG from 'react-inlinesvg'
 import logoFile from '../images/logo-analogmemory.svg'
 
@@ -9,17 +10,17 @@ const HeaderContainer = styled.header`
   text-align: center;
   background-color: transparent;
   display: flex;
-  margin: 0 auto;
   align-items: center;
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  position: relative;
+  margin: 1rem auto;
 
-  @media (max-width: 768px) {
-    position: relative;
-    margin: 2rem auto;
-  }
+  ${media.greaterThan('medium')`
+    position: fixed;
+    margin: 0 auto;
+  `}
 `
 const HeaderInner = styled.div`
   max-width: 90rem;
@@ -35,7 +36,7 @@ const HeaderInner = styled.div`
 const Masthead = styled.figure`
   display: block;
   width: 100%;
-  height: 112px;
+  height: 96px;
   margin: 0 auto;
 
   a {

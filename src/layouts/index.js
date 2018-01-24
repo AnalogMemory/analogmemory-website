@@ -12,9 +12,7 @@ const TemplateWrapper = ({ children }) => (
               { name: 'description', content: 'Portfolio Website of Analog Memory. Front-End Developer based in San Francisco' },
             ]} />
     <Header/>
-    <div>
-      {children()}
-    </div>
+    {children()}
   </div>
 )
 

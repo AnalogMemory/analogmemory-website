@@ -1,30 +1,28 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const Intro = styled.article`
-  width: 100%;
-  max-width: 50%;
-  margin: 0 auto;
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  z-index: 10;
-  padding: 3rem 3rem;
   background: #fff;
+  position: relative;
+  width: auto;
+  max-width: 84%;
+  margin: 1rem auto 1rem;
+  bottom: auto;
+  left: auto;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.12);
 
-  @media (max-width: 768px) {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    margin: 3rem auto;
-    padding: 2rem;
-    max-width: 80%;
-  }
-
-  h1 {
-    margin-bottom: 0.5rem;
-  }
+  ${media.greaterThan('medium')`
+    position: absolute;
+    max-width: 50%;
+    margin: 0 auto;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 4rem;
+    z-index: 10;
+  `}
 
   p:last-child {
     margin-bottom: 0px;
@@ -34,9 +32,7 @@ const Intro = styled.article`
 const IndexPage = props => {
   const page = props.data.contentfulPage
   return (
-    <div>
-      <Intro dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
-    </div>
+    <Intro dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
   )
 }
 
