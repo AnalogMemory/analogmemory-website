@@ -21,11 +21,11 @@ $small-spacing: $base-spacing / 2;
 
 // Colors
 $white:            #ffffff;
-$black:            #000000;
-$dark-gray:        #333333;
-$medium-gray:      #666666;
-$light-gray:       #cccccc;
-$lighter-gray:     #efefef;
+$black:            #131516;
+$dark-gray:        #373D3F;
+$medium-gray:      #707C80;
+$light-gray:       #c1c7c9;
+$lighter-gray:     #f2f3f4;
 $dark-red:         #660000;
 $alert:            #fff6bf;
 $error:            #fbe3e4;
@@ -33,9 +33,9 @@ $notice:           #e5edf8;
 $success:          #e6efc2;
 
 // Font Colors
-$base-font-color: $black;
-$header-font-color: $black;
-$action-color: $dark-red;
+$base-font-color: $dark-gray;
+$header-font-color: $dark-gray;
+$action-color: $dark-gray;
 $action-hover-color: $black;
 
 // Font-smoothing

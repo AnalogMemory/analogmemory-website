@@ -25,7 +25,7 @@ const HeaderContainer = styled.header`
 const HeaderInner = styled.div`
   max-width: 90rem;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
   margin: auto;
   flex-direction: row;
