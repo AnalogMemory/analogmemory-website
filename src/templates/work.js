@@ -1,11 +1,33 @@
 import React from "react"
+import styled from 'styled-components'
+import Title from '../components/TitleEl'
+
+const Section = styled.section`
+  width: 100%;
+  margin: 100px 0 0;
+  background: #fff;
+`
+const WorkView = styled.div`
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+`
 
 const WorkTemplate = props => {
   const work = props.data.contentfulWorks
+
   return (
-    <div>
-      <h3>{work.title}</h3>
-    </div>
+    <Section>
+      <WorkView key={work.id}>
+        <figure>
+          <img src={work.featuredImage.sizes.src} alt="" title={work.title}/>
+        </figure>
+        <Title text={work.title} size={`h3`} />
+        <p>
+          {work.description.description}
+        </p>
+      </WorkView>
+    </Section>
   )
 }
 
@@ -18,7 +40,6 @@ export const workQuery = graphql`
       title
       slug
       featuredImage {
-        id
         sizes(maxWidth: 1600) {
           sizes
           src
@@ -26,7 +47,6 @@ export const workQuery = graphql`
         }
       }
       description {
-        id
         description
       }
     }
