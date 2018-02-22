@@ -17,9 +17,8 @@ body {
   line-height: $base-line-height;
   padding: 0;
   margin: 0;
-  background: #16A085;
-  background: -webkit-linear-gradient(to right, #F4D03F, #16A085);
-  background: linear-gradient(to right, #F4D03F, #16A085);
+  background: #114357;  /* fallback for old browsers */
+  background: linear-gradient(to left, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   min-height: 0;
 
   @media ($medium-screen-up) {
