@@ -2,13 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Title = ({ text, size, align }) => {
+const Title = ({ text, size, align, margin, transform, color }) => {
   const Component = size || `h2`
   const StyledTitle = styled(Component)`
-    ${size === `h1` ? `font-size: 5rem;` : null}
-    ${size === `h2` ? `font-size: 3rem;` : null}
-    ${size === `h3` ? `font-size: 2rem;` : null}
-    ${align ? `text-align: ${align};` : null}
+    ${size === `h1` && `font-size: 5rem;`}
+    ${size === `h2` && `font-size: 3rem;`}
+    ${size === `h3` && `font-size: 2rem;`}
+    ${align && `text-align: ${align};`}
+    ${margin && `margin: ${margin};`}
+    ${transform && `text-transform: ${transform};`}
+    ${color && `color: ${color};`}
   `
   return (
     <StyledTitle dangerouslySetInnerHTML={{ __html: text }} />
@@ -18,7 +21,10 @@ const Title = ({ text, size, align }) => {
 Title.propTypes = {
   text: PropTypes.string.isRequired,
   size: PropTypes.string,
-  align: PropTypes.string
+  align: PropTypes.string,
+  margin: PropTypes.string,
+  transform: PropTypes.string,
+  color: PropTypes.string
 }
 
 export default Title
