@@ -18,7 +18,6 @@ const HeaderContainer = styled.header`
   margin: 1rem auto;
 
   ${media.greaterThan('medium')`
-    position: fixed;
     margin: 0 auto;
   `}
 `
