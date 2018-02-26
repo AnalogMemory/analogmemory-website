@@ -26,8 +26,20 @@ const WorkCard = styled.div`
   overflow: hidden;
 
   &:hover {
-    figure {
-      transform: scale(1.08);
+    .copy {
+
+      h3 {
+        transform: translateY(0);
+        margin-bottom: 0.25em;
+      }
+      p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      span {
+        opacity: 0.8;
+        transform: translateY(0%) skewY(4deg);
+      }
     }
   }
 
@@ -53,26 +65,48 @@ const WorkCard = styled.div`
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     z-index: 2;
     padding: 2em;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-content: flex-end;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 90%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
 
     h3, p, a {
       color: #fff;
       margin-bottom: 0;
+      position: relative;
+      z-index: 5;
     }
 
     h3 {
-      margin-bottom: 0.25em;
+      margin-bottom: 0;
+      transform: translateY(100%);
+      transition: transform 300ms ease-out, margin 300ms ease-out;
     }
 
     p {
       color: #a5a5a5;
+      opacity: 0;
+      font-size: 1em;
+      transform: translateY(75%);
+      transition: transform 300ms ease-out, opacity 300ms 100ms ease-out;
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 200%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: #000000;
+      opacity: 0;
+      transform: translateY(10%) skewY(0deg);
+      transition: transform 300ms ease-out, opacity 300ms ease-out;
     }
   }
 `
@@ -103,6 +137,7 @@ const Works = props => {
             <Link className="copy" to={`/works/${work.slug}/`}>
               <h3>{work.title}</h3>
               <p>{work.description.description}</p>
+              <span></span>
             </Link>
           </WorkCard>
         ))}
