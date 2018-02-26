@@ -19,9 +19,9 @@ const WorkCardWrap = styled.div`
   border-top: none;
 `
 const WorkCard = styled.div`
-  max-width: 50%;
+  max-width: 33.33%;
   width: 100%;
-  flex-basis: 50%;
+  flex-basis: 33.33%;
   position: relative;
   overflow: hidden;
 
@@ -30,7 +30,7 @@ const WorkCard = styled.div`
 
       h3 {
         transform: translateY(0);
-        margin-bottom: 0.25em;
+        ${props => props.offset && `margin-bottom: 0.25em;`}
       }
       p {
         opacity: 1;
@@ -38,7 +38,7 @@ const WorkCard = styled.div`
       }
       span {
         opacity: 0.8;
-        transform: translateY(0%) skewY(4deg);
+        transform: translateY(0%) skewY(2deg);
       }
     }
   }
@@ -72,7 +72,7 @@ const WorkCard = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-content: flex-end;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 90%);
 
     h3, p, a {
       color: #fff;
@@ -82,9 +82,11 @@ const WorkCard = styled.div`
     }
 
     h3 {
-      margin-bottom: 0;
-      transform: translateY(100%);
-      transition: transform 300ms ease-out, margin 300ms ease-out;
+      ${props => props.offset == true && `
+        margin-bottom: 0;
+        transform: translateY(78%);
+        transition: transform 300ms ease-out, margin 300ms ease-out;
+      `}
     }
 
     p {
@@ -92,7 +94,7 @@ const WorkCard = styled.div`
       opacity: 0;
       font-size: 1em;
       transform: translateY(75%);
-      transition: transform 300ms ease-out, opacity 300ms 100ms ease-out;
+      transition: transform 300ms ease, opacity 300ms 100ms ease;
     }
 
     span {
@@ -105,7 +107,7 @@ const WorkCard = styled.div`
       z-index: 1;
       background-color: #000000;
       opacity: 0;
-      transform: translateY(10%) skewY(0deg);
+      transform: translateY(10%);
       transition: transform 300ms ease-out, opacity 300ms ease-out;
     }
   }
@@ -130,13 +132,15 @@ const Works = props => {
       </TitleHeader>
       <WorkCardWrap>
         {works_data.map(({ node: work }) => (
-          <WorkCard key={work.id}>
+          <WorkCard key={work.id} offset={work.role && work.role.length > 0}>
             <figure>
               <img src={work.featuredImage.sizes.src} alt="" title={work.title}/>
             </figure>
             <Link className="copy" to={`/works/${work.slug}/`}>
               <h3>{work.title}</h3>
-              <p>{work.description.description}</p>
+              {work.role && (
+                <p>Role: {work.role.join(`, `)}</p>
+              )}
               <span></span>
             </Link>
           </WorkCard>
@@ -164,6 +168,8 @@ export const worksQuery = graphql`
           description {
             description
           }
+          role
+          tech
         }
       }
     }
