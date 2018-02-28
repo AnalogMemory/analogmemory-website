@@ -1,11 +1,57 @@
 import React from 'react'
+import styled from 'styled-components'
+import Title from '../components/TitleEl'
+import ContactForm from '../components/ContactForm'
+
+const Section = styled.section`
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 2em;
+`
+const TitleHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  position: relative;
+  z-index: 3;
+  border: 2em solid #fff;
+`
+const Content = styled.div`
+  width: 100%;
+  background: #fff;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2em solid #fff;
+  border-top: none;
+`
+const Col = styled.div`
+  max-width: 35%;
+  width: 100%;
+  flex-basis: 35%;
+  margin: 2rem 1rem;
+`
 
 const ContactPage = props => {
   const page = props.data.contentfulPage
   return (
-    <div>
-      <h1>{page.title}</h1>
-    </div>
+    <Section>
+      <TitleHeader>
+        <Title text={page.title} size={`h1`} color={`#fff`} margin={`auto`} />
+      </TitleHeader>
+      <Content>
+        <Col>
+          <article dangerouslySetInnerHTML={{ __html: page.copy.copy }} />
+        </Col>
+        <Col>
+          <ContactForm />
+        </Col>
+      </Content>
+    </Section>
   )
 }
 
