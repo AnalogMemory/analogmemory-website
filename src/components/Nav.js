@@ -47,14 +47,14 @@ const NavLink = styled(Link)`
 
 const Nav = props => {
   const navData = [
-    { "title": "Works", "path": "/works/" },
-    { "title": "Contact", "path": "/contact/" }
+    { "id": 1, "title": "Works", "path": "/works/" },
+    { "id": 2, "title": "Contact", "path": "/contact/" }
   ]
   return (
     <NavStyled>
       <NavUl>
         {navData.map(nav => (
-          <NavLi>
+          <NavLi key={nav.id}>
             <NavLink to={nav.path}>
               {nav.title}
             </NavLink>
