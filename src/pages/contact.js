@@ -5,7 +5,6 @@ import ContactForm from '../components/ContactForm'
 
 const Section = styled.section`
   width: 100%;
-  min-height: 100%;
   margin: 0;
   padding: 2em;
 `
@@ -14,7 +13,7 @@ const TitleHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  padding: 4rem 2rem;
   position: relative;
   z-index: 3;
   border: 2em solid #fff;

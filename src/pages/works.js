@@ -5,25 +5,26 @@ import Title from '../components/TitleEl'
 
 const Section = styled.section`
   width: 100%;
-  min-height: 100%;
   margin: 0;
   padding: 2em;
 `
 const WorkCardWrap = styled.div`
   width: 100%;
   background: #fff;
-  margin: 0 auto;
+  margin: 0 auto 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   border: 2em solid #fff;
   border-top: none;
+  position: relative;
+  padding: 0;
+  z-index: 5;
 `
 const WorkCard = styled.div`
   max-width: 33.33%;
   width: 100%;
-  flex-basis: 33.33%;
-  position: relative;
-  overflow: hidden;
+  margin: 0 -0.75rem;
 
   &:hover {
     .copy {
@@ -38,7 +39,7 @@ const WorkCard = styled.div`
       }
       span {
         opacity: 0.8;
-        transform: translateY(0%) skewY(2deg);
+        transform: translateY(0%) skewY(1.5deg);
       }
     }
   }
@@ -112,15 +113,33 @@ const WorkCard = styled.div`
     }
   }
 `
+const WorkCardInner = styled.div`
+  position: relative;
+  margin: 2rem 0.75rem 0;
+  overflow: hidden;
+`
 const TitleHeader = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
   position: relative;
-  z-index: 3;
-  border: 2em solid #fff;
+  padding: 8rem 2rem 3rem;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    display: block;
+    border: 2em solid #ffffff;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform: translateY(2.75rem) skewY(-1deg);
+  }
 `
 
 const Works = props => {
@@ -133,16 +152,18 @@ const Works = props => {
       <WorkCardWrap>
         {works_data.map(({ node: work }) => (
           <WorkCard key={work.id} offset={work.role && work.role.length > 0}>
-            <figure>
-              <img src={work.featuredImage.sizes.src} alt="" title={work.title}/>
-            </figure>
-            <Link className="copy" to={`/works/${work.slug}/`}>
-              <h3>{work.title}</h3>
-              {work.role && (
-                <p>Role: {work.role.join(`, `)}</p>
-              )}
-              <span></span>
-            </Link>
+            <WorkCardInner>
+              <figure>
+                <img src={work.featuredImage.sizes.src} alt="" title={work.title}/>
+              </figure>
+              <Link className="copy" to={`/works/${work.slug}/`}>
+                <h3 dangerouslySetInnerHTML={{ __html: work.title }} />
+                {work.projectType && (
+                  <p dangerouslySetInnerHTML={{ __html: work.projectType.join(', ') }} />
+                )}
+                <span></span>
+              </Link>
+            </WorkCardInner>
           </WorkCard>
         ))}
       </WorkCardWrap>
@@ -165,11 +186,7 @@ export const worksQuery = graphql`
               src
             }
           }
-          description {
-            description
-          }
-          role
-          tech
+          projectType
         }
       }
     }
