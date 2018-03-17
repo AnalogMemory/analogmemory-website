@@ -83,6 +83,9 @@ const WorkCard = styled.div`
     }
 
     h3 {
+      transform: translateY(75%);
+      transition: transform 300ms ease;
+
       ${props => props.offset == true && `
         margin-bottom: 0;
         transform: translateY(78%);
