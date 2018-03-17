@@ -38,7 +38,7 @@ const NavLink = styled(Link)`
     transform-origin: center;
   }
 
-  &:hover, &:active, &:focus {
+  &:hover, &:active, &:focus, &.active {
     color: #f2f3f4;
 
     &:after {
@@ -57,7 +57,7 @@ const Nav = props => {
       <NavUl>
         {navData.map(nav => (
           <NavLi key={nav.id}>
-            <NavLink to={nav.path}>
+            <NavLink to={nav.path} activeClassName="active">
               {nav.title}
             </NavLink>
           </NavLi>
