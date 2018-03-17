@@ -13,10 +13,23 @@ const TitleHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
   position: relative;
-  z-index: 3;
-  border: 2em solid #fff;
+  padding: 3rem 2rem;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    display: block;
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 150%;
+    pointer-events: none;
+    transform: skewY(-1deg);
+  }
 `
 const Content = styled.div`
   width: 100%;
@@ -27,6 +40,8 @@ const Content = styled.div`
   justify-content: center;
   border: 2em solid #fff;
   border-top: none;
+  position: relative;
+  z-index: 2;
 `
 const Col = styled.div`
   max-width: 35%;

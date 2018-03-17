@@ -39,7 +39,7 @@ const WorkCard = styled.div`
       }
       span {
         opacity: 0.8;
-        transform: translateY(0%) skewY(1.5deg);
+        transform: translateY(0%) skewY(-1.5deg);
       }
     }
   }
@@ -124,21 +124,21 @@ const TitleHeader = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 8rem 2rem 3rem;
+  padding: 3rem 2rem;
   z-index: 1;
 
   &:after {
     content: '';
     display: block;
-    border: 2em solid #ffffff;
     z-index: 1;
     position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 150%;
     pointer-events: none;
-    transform: translateY(2.75rem) skewY(-1deg);
+    transform: skewY(-1deg);
   }
 `
 

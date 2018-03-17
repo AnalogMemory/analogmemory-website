@@ -29,18 +29,20 @@ const NavLink = styled(Link)`
     display: block;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    top: 50%;
     height: 0;
     z-index: -1;
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(0, 0, 0, 0.35);
     transition: height 300ms ease;
+    transform: translateY(-50%) skewY(-1.5deg);
+    transform-origin: center;
   }
 
   &:hover, &:active, &:focus {
     color: #f2f3f4;
 
     &:after {
-      height: 50%;
+      height: 100%;
     }
   }
 `

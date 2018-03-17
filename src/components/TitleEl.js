@@ -5,6 +5,9 @@ import styled from 'styled-components'
 const Title = ({ text, size, align, margin, transform, color }) => {
   const Component = size || `h2`
   const StyledTitle = styled(Component)`
+    position: relative;
+    z-index: 2;
+
     ${size === `h1` && `font-size: 5rem;`}
     ${size === `h2` && `font-size: 3rem;`}
     ${size === `h3` && `font-size: 2rem;`}
