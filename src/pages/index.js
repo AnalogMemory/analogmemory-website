@@ -44,9 +44,10 @@ const BackgroundNoise = styled.div`
 
 const IndexPage = props => {
   const page = props.data.contentfulPage
+  const workLink = `<a class="button" href="/works/">View Works</a>`
   return (
     <div>
-      <Intro dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
+      <Intro dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html + workLink }} />
       <BackgroundNoise />
     </div>
   )
