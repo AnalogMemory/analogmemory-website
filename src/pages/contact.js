@@ -55,7 +55,7 @@ const ContactPage = props => {
   return (
     <Section>
       <TitleHeader>
-        <Title text={page.title} size={`h1`} color={`#fff`} margin={`auto`} transform={`uppercase`} />
+        <Title text={page.title} size={`h1`} color={`#1de9b6`} margin={`auto`} transform={`uppercase`} />
       </TitleHeader>
       <Content>
         <Col>

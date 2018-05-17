@@ -93,7 +93,7 @@ const Works = props => {
   return (
     <Section>
       <TitleHeader>
-        <Title text={`Works`} size={`h1`} color={`#fff`} margin={`auto`} transform={`uppercase`} />
+        <Title text={`Works`} size={`h1`} color={`#1de9b6`} margin={`auto`} transform={`uppercase`} />
       </TitleHeader>
       <WorkCardWrap>
         {works_data.map(({ node: work }) => (
