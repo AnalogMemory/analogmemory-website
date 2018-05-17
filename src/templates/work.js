@@ -106,7 +106,6 @@ export const workQuery = graphql`
       title
       slug
       featuredImage {
-        id
         sizes(maxWidth: 1600, quality: 60) {
           sizes
           src

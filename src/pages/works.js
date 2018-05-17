@@ -185,8 +185,10 @@ export const worksQuery = graphql`
           title
           slug
           featuredImage {
-            sizes(maxWidth: 1000, quality: 60) {
+            sizes(maxWidth: 1600, quality: 60) {
+              sizes
               src
+              srcSet
             }
           }
           projectType
