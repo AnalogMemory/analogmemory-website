@@ -44,7 +44,7 @@ const ContactPage = props => {
       </TitleHeader>
       <Content>
         <Col>
-          <article dangerouslySetInnerHTML={{ __html: page.copy.copy }} />
+          <article dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
         </Col>
         <Col>
           <ContactForm />
@@ -63,7 +63,9 @@ export const indexQuery = graphql`
       title
       slug
       copy {
-        copy
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }
