@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import BgNoise from '../images/noise.svg'
 
 const Intro = styled.article`
   position: relative;
@@ -29,11 +30,25 @@ const Intro = styled.article`
     margin-bottom: 0px;
   }
 `
+const BackgroundNoise = styled.div`
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${BgNoise}) no-repeat center;
+  background-size: cover;
+`
 
 const IndexPage = props => {
   const page = props.data.contentfulPage
   return (
-    <Intro dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
+    <div>
+      <Intro dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
+      <BackgroundNoise />
+    </div>
   )
 }
 
