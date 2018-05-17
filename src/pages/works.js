@@ -135,7 +135,7 @@ const TitleHeader = styled.div`
     display: block;
     z-index: 1;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.85);
     left: 0;
     top: 0;
     width: 100%;
@@ -150,7 +150,7 @@ const Works = props => {
   return (
     <Section>
       <TitleHeader>
-        <Title text={`Works`} size={`h1`} color={`#fff`} margin={`auto`} />
+        <Title text={`Works`} size={`h1`} color={`#fff`} margin={`auto`} transform={`uppercase`} />
       </TitleHeader>
       <WorkCardWrap>
         {works_data.map(({ node: work }) => (

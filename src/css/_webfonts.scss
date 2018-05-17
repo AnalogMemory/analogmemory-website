@@ -9,23 +9,23 @@
       local('DroidSans'),
       local('Tahoma');
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
 }
 
-@font-face {
-    font-family: 'Gilroy';
-    src: url('../fonts/gil-eb.woff2') format('woff2'),
-        url('../fonts/gil-eb.woff') format('woff'),
-        url('../fonts/gil-eb.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Gilroy';
+//     src: url('../fonts/gil-eb.woff2') format('woff2'),
+//         url('../fonts/gil-eb.woff') format('woff'),
+//         url('../fonts/gil-eb.ttf') format('truetype');
+//     font-weight: 800;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Sentinel Book';
-    src: url('../fonts/sent-bi.woff2') format('woff2'),
-        url('../fonts/sent-bi.woff') format('woff'),
-        url('../fonts/sent-bi.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Sentinel Book';
+//     src: url('../fonts/sent-bi.woff2') format('woff2'),
+//         url('../fonts/sent-bi.woff') format('woff'),
+//         url('../fonts/sent-bi.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: italic;
+// }

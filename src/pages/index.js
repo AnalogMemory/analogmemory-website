@@ -12,15 +12,14 @@ const Intro = styled.article`
   bottom: auto;
   left: auto;
   padding: 2rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.12);
 
   ${media.greaterThan('medium')`
     position: absolute;
-    max-width: 50%;
+    max-width: 60%;
     margin: 0 auto;
     bottom: 2rem;
     left: 2rem;
-    padding: 4rem;
+    padding: 3rem;
     z-index: 10;
   `}
 

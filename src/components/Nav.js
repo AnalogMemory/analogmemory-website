@@ -17,12 +17,14 @@ const NavLi = styled.li`
   margin: 0 0 0 1rem;
 `
 const NavLink = styled(Link)`
-  font-family: 'Gilroy', sans-serif;
-  text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 700;
   padding: 0.25rem 0.9rem;
-  color: #f2f3f4;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
   position: relative;
+  font-size: 1.25rem;
+  outline: none;
+  border: none;
 
   &:after {
     content: '';
@@ -32,14 +34,13 @@ const NavLink = styled(Link)`
     top: 50%;
     height: 0;
     z-index: -1;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: #1de9b6;
     transition: height 300ms ease;
     transform: translateY(-50%) skewY(-1.5deg);
     transform-origin: center;
   }
 
   &:hover, &:active, &:focus, &.active {
-    color: #f2f3f4;
 
     &:after {
       height: 100%;

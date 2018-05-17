@@ -13,23 +13,17 @@ const MastheadStyled = styled.figure`
 const MastheadLink = styled(Link)`
   display: flex;
   align-items: center;
-  color: #f2f3f4;
+  outline: none;
+  border: none;
 `
 const MastheadLogo = styled(SVG)`
   display: block;
-  width: 2rem;
-  margin-right: 0.375rem;
+  width: 4.5rem;
+  margin-right: 0.5rem;
 
   svg {
     display: block;
-    fill: #f2f3f4;
   }
-`
-const LogoType = styled.h1`
-  text-transform: uppercase;
-  font-size: 1rem;
-  margin: 0;
-  color: #f2f3f4;
 `
 
 const Masthead = props => {
@@ -37,7 +31,6 @@ const Masthead = props => {
     <MastheadStyled>
       <MastheadLink to={`/`}>
         <MastheadLogo src={logoFile} />
-        <LogoType>Analog Memory</LogoType>
       </MastheadLink>
     </MastheadStyled>
   )

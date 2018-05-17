@@ -8,6 +8,13 @@ html {
   box-sizing: inherit;
 }
 
+::selection {
+  background: #dbffff;
+}
+::-moz-selection {
+  background: #dbffff;
+}
+
 body {
   color: $base-font-color;
   font-family: $base-font-family;
@@ -17,9 +24,7 @@ body {
   line-height: $base-line-height;
   padding: 0;
   margin: 0;
-  // background: linear-gradient(to left, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to top, #FFE082, #009688); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: contain;
+  background-color: #f6faf9;
 }
 
 h1, h2, h3, h4, h5, h6, p, li, a, dd, dt, input, select, textarea, button, .button, figcaption {
@@ -79,6 +84,7 @@ li {
 a {
   color: $action-color;
   text-decoration: none;
+  border-bottom: 4px solid #1de9b6;
   transition: color $base-duration $base-timing;
 
   &:active,
@@ -100,4 +106,8 @@ img, picture {
   margin: 0;
   max-width: 100%;
   height: auto;
+}
+
+.highlight {
+  background-color: #1de9b6;
 }

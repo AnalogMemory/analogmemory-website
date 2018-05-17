@@ -7,9 +7,10 @@ const Title = ({ text, size, align, margin, transform, color }) => {
   const StyledTitle = styled(Component)`
     position: relative;
     z-index: 2;
+    font-weight: 700;
 
-    ${size === `h1` && `font-size: 5rem;`}
-    ${size === `h2` && `font-size: 3rem;`}
+    ${size === `h1` && `font-size: 3.5rem;`}
+    ${size === `h2` && `font-size: 2.5rem;`}
     ${size === `h3` && `font-size: 2rem;`}
     ${align && `text-align: ${align};`}
     ${margin && `margin: ${margin};`}
