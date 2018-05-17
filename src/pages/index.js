@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 
 const Intro = styled.article`
-  background: #fff;
   position: relative;
   width: auto;
   max-width: 84%;
@@ -12,12 +11,15 @@ const Intro = styled.article`
   bottom: auto;
   left: auto;
   padding: 2rem;
+  border-left: 16px solid #1de9b6;
+  background-color: #ffffff;
+  transform: translateX(-16px);
 
   ${media.greaterThan('medium')`
     position: absolute;
     max-width: 60%;
     margin: 0 auto;
-    bottom: 2rem;
+    bottom: 12%;
     left: 2rem;
     padding: 3rem;
     z-index: 10;

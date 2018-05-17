@@ -55,11 +55,12 @@ const WorkView = styled.div`
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 `
 const WorkVisualsCol = styled.div`
-  width: 50%;
-  padding: 3em;
-  background-color: #ffffff;
+  width: 40%;
+  padding: 0 3em 0 0;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -78,9 +79,11 @@ const WorkVisuals = styled.figure`
   img { display: block; }
 `
 const WorkDescriptionCol = styled.article`
-  width: 50%;
+  width: 40%;
   padding: 3em;
-  background-color: #fafafa;
+  background-color: #ffffff;
+  border-left: 16px solid #1de9b6;
+  height: 100%;
 `
 const WorkInfo = styled.p`
   font-size: 0.9375em;

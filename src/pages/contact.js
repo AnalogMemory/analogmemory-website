@@ -9,36 +9,19 @@ const Section = styled.section`
   padding: 2em;
 `
 const TitleHeader = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 3rem 2rem;
+  border-left: 16px solid #1de9b6;
+  padding: 2rem 3rem;
+  margin: 0 auto;
   z-index: 1;
-
-  &:after {
-    content: '';
-    display: block;
-    z-index: 1;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.85);
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 150%;
-    pointer-events: none;
-    transform: skewY(-1deg);
-  }
+  transform: translateX(-16px);
+  background-color: #ffffff;
+  display: inline-block;
 `
 const Content = styled.div`
   width: 100%;
-  background: #fff;
-  margin: 0 auto;
+  margin: 4rem auto 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  border: 2em solid #fff;
   border-top: none;
   position: relative;
   z-index: 2;
@@ -47,7 +30,9 @@ const Col = styled.div`
   max-width: 35%;
   width: 100%;
   flex-basis: 35%;
-  margin: 2rem 1rem;
+  margin: 0 2rem 0 0;
+  background-color: #ffffff;
+  padding: 2rem;
 `
 
 const ContactPage = props => {
@@ -55,7 +40,7 @@ const ContactPage = props => {
   return (
     <Section>
       <TitleHeader>
-        <Title text={page.title} size={`h1`} color={`#1de9b6`} margin={`auto`} transform={`uppercase`} />
+        <Title text={page.title} size={`h1`} margin={`0`} transform={`uppercase`} />
       </TitleHeader>
       <Content>
         <Col>

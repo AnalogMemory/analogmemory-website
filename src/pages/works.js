@@ -8,10 +8,18 @@ const Section = styled.section`
   margin: 0;
   padding: 2em;
 `
+const TitleHeader = styled.div`
+  border-left: 16px solid #1de9b6;
+  padding: 2rem 3rem;
+  margin: 0 auto;
+  z-index: 1;
+  transform: translateX(-16px);
+  background-color: #ffffff;
+  display: inline-block;
+`
 const WorkCardWrap = styled.div`
   width: 100%;
-  background: #f6faf9;
-  margin: 0 auto 0;
+  margin: 4rem auto 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -21,9 +29,10 @@ const WorkCardWrap = styled.div`
   z-index: 5;
 `
 const WorkCard = styled.div`
-  max-width: 33.33%;
+  max-width: 31%;
   width: 100%;
-  margin: 0 -0.75rem;
+  margin: 0 0 1.5rem;
+  height: 100%;
 
   figure {
     margin: 0;
@@ -43,7 +52,7 @@ const WorkCard = styled.div`
   .copy {
     position: relative;
     width: 100%;
-    padding: 1em 0;
+    padding: 1.25em 0;
 
     p {
       margin-bottom: 0.25rem;
@@ -61,31 +70,6 @@ const WorkCard = styled.div`
 `
 const WorkCardInner = styled.div`
   position: relative;
-  margin: 2rem 0.75rem 0;
-  overflow: hidden;
-`
-const TitleHeader = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 3rem 2rem;
-  z-index: 1;
-
-  &:after {
-    content: '';
-    display: block;
-    z-index: 1;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.85);
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 150%;
-    pointer-events: none;
-    transform: skewY(-1deg);
-  }
 `
 
 const Works = props => {
@@ -93,7 +77,7 @@ const Works = props => {
   return (
     <Section>
       <TitleHeader>
-        <Title text={`Works`} size={`h1`} color={`#1de9b6`} margin={`auto`} transform={`uppercase`} />
+        <Title text={`Works`} size={`h1`} margin={`0`} transform={`uppercase`} />
       </TitleHeader>
       <WorkCardWrap>
         {works_data.map(({ node: work }) => (
