@@ -15,6 +15,10 @@ const MastheadLink = styled(Link)`
   align-items: center;
   outline: none;
   border: none;
+
+  &:hover {
+    border: none;
+  }
 `
 const MastheadLogo = styled(SVG)`
   display: block;

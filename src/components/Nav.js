@@ -41,6 +41,7 @@ const NavLink = styled(Link)`
   }
 
   &:hover, &:active, &:focus, &.active {
+    border: none;
 
     &:after {
       height: 100%;

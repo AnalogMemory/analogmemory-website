@@ -10,9 +10,6 @@ const WorkTemplate = props => {
     <Section>
       <WorkView key={work.id}>
         <WorkVisualsCol>
-          <WorkVisuals key={work.featuredImage.id}>
-            <img src={work.featuredImage.sizes.src} alt="" title={work.title} />
-          </WorkVisuals>
           {work.extraImages && work.extraImages.map(image => (
             <WorkVisuals key={image.id}>
               <img src={image.sizes.src} alt="" />
@@ -21,9 +18,11 @@ const WorkTemplate = props => {
         </WorkVisualsCol>
         <WorkDescriptionCol>
           <Title text={work.title} size={`h3`} />
-          <p>
-            {work.description.description}
-          </p>
+          {work.description &&
+            <p>
+              {work.description.description}
+            </p>
+          }
           {work.projectType &&
             <WorkInfo>
               <strong>Project Type</strong>
@@ -53,16 +52,14 @@ const Section = styled.section`
 `
 const WorkView = styled.div`
   width: 100%;
-  background: #fff;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  border: 2em solid #fff;
 `
 const WorkVisualsCol = styled.div`
   width: 50%;
   padding: 3em;
-  background-color: #ECEFF1;
+  background-color: #ffffff;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -83,7 +80,7 @@ const WorkVisuals = styled.figure`
 const WorkDescriptionCol = styled.article`
   width: 50%;
   padding: 3em;
-  background-color: #ffffff;
+  background-color: #fafafa;
 `
 const WorkInfo = styled.p`
   font-size: 0.9375em;
@@ -92,10 +89,8 @@ const WorkInfo = styled.p`
   strong {
     display: block;
     text-transform: uppercase;
-    font-family: 'gilroy';
   }
 `
-
 
 export default WorkTemplate
 
@@ -105,13 +100,6 @@ export const workQuery = graphql`
       id
       title
       slug
-      featuredImage {
-        sizes(maxWidth: 1600, quality: 60) {
-          sizes
-          src
-          srcSet
-        }
-      }
       extraImages {
         id
         sizes(maxWidth: 1600, quality: 60) {
