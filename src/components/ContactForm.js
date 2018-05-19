@@ -89,6 +89,11 @@ const InputSubmit = styled(Input)`
   color: ${props => props.disabled ? `#999999` : `#222222`};
   border: none !important;
 `
+function encode(data) {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
 
 class ContactForm extends Component {
   state = {
@@ -98,7 +103,8 @@ class ContactForm extends Component {
     nameValid: false,
     email: '',
     emailValid: false,
-    message: ''
+    message: '',
+    submitText: 'Send!'
   }
 
   handleInput = (event) => {
@@ -135,11 +141,33 @@ class ContactForm extends Component {
     return regex.test(email);
   }
 
+  handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state })
+    })
+    .then(() => this.setState({
+      name: '',
+      email: '',
+      message: '',
+      submitText: 'Message Sent!'
+    }))
+    .catch(error => alert(error));
+    e.preventDefault();
+  }
+
   render () {
     const { activeInput } = this.state
     return (
-      <Form>
+      <Form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bonus-field"
+        onSubmit={this.handleSubmit}>
         <Title text={`Let’s Talk`} size={`h4`} />
+        <input type="hidden" name="form-name" value="contact" />
         <FieldGroup>
           <Label isActive={activeInput === `name` || this.state.name != ''}>
             Name
@@ -177,11 +205,12 @@ class ContactForm extends Component {
             onFocus={() => this.handleFocus(`message`)}
             defaultValue={this.state.message} />
         </FieldGroup>
+        <p style={{ display: `none` }}><input name="bonus-field" /></p>
         <FieldGroup>
           <InputSubmit
             type="submit"
             name="submit"
-            value="Send!"
+            value={this.state.submitText}
             disabled={!this.state.formValid} />
         </FieldGroup>
       </Form>
