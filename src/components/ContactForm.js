@@ -111,15 +111,19 @@ class ContactForm extends Component {
     const inputKey = this.state.activeInput
     this.setState({ [inputKey]: event.target.value})
 
-    if (this.state.name) {
-      this.setState({ nameValid: true })
-    } else {
-      this.setState({ nameValid: false })
+    if (inputKey === 'name') {
+      if (this.state.name) {
+        this.setState({ nameValid: true })
+      } else {
+        this.setState({ nameValid: false })
+      }
     }
-    if (inputKey === 'email' && this.isEmailValid(event.target.value)) {
-      this.setState({ emailValid: true })
-    } else {
-      this.setState({ emailValid: false })
+    if (inputKey === 'email') {
+      if (this.isEmailValid(event.target.value)) {
+        this.setState({ emailValid: true })
+      } else {
+        this.setState({ emailValid: false })
+      }
     }
     if (this.state.nameValid && this.state.emailValid) {
       this.setState({ formValid: true })
