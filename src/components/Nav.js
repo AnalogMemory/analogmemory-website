@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const NavStyled = styled.nav`
   display: block;
@@ -18,13 +19,18 @@ const NavLi = styled.li`
 `
 const NavLink = styled(Link)`
   font-weight: 700;
-  padding: 0.25rem 0.9rem;
+  padding: 0.25rem 0.5rem;
   letter-spacing: 0.0625rem;
   text-transform: uppercase;
   position: relative;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   outline: none;
   border: none;
+
+  ${media.greaterThan('medium')`
+    font-size: 1.25rem;
+    padding: 0.25rem 0.9rem;
+  `}
 
   &:after {
     content: '';

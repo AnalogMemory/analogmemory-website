@@ -24,13 +24,17 @@ const HeaderContainer = styled.header`
 const HeaderInner = styled.div`
   max-width: 90rem;
   width: 100%;
-  padding: 1.5rem 2rem;
+  padding: 0 1rem;
   display: flex;
   margin: auto;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
+  justify-content: space-between;
+
+  ${media.greaterThan('medium')`
+    padding: 1.5rem 2rem;
+  `}
 `
 
 const Header = ({ data }) => {

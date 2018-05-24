@@ -8,15 +8,15 @@ const Intro = styled.article`
   position: relative;
   width: auto;
   max-width: 84%;
-  margin: 1rem auto 1rem;
+  margin: 4rem auto 1rem;
   bottom: auto;
   left: auto;
-  padding: 2rem;
-  border-left: 16px solid #1de9b6;
+  padding: 1.5rem;
+  border-left: 8px solid #1de9b6;
   background-color: #ffffff;
-  transform: translateX(-16px);
 
   ${media.greaterThan('medium')`
+    border-left: 16px solid #1de9b6;
     position: absolute;
     max-width: 60%;
     margin: 0 auto;
@@ -24,6 +24,7 @@ const Intro = styled.article`
     left: 2rem;
     padding: 3rem;
     z-index: 10;
+    transform: translateX(-16px);
   `}
 
   p:last-child {

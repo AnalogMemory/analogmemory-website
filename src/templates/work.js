@@ -1,5 +1,6 @@
 import React from "react"
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import Title from '../components/TitleEl'
 import ButtonLink from '../components/ButtonLink'
 
@@ -59,12 +60,16 @@ const WorkView = styled.div`
   justify-content: center;
 `
 const WorkVisualsCol = styled.div`
-  width: 40%;
-  padding: 0 3em 0 0;
+  width: 100%;
+  padding: 0 0 2em 0;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+
+  ${media.greaterThan('medium')`
+    width: 40%;
+  `}
 `
 const WorkVisuals = styled.figure`
   width: 100%;
@@ -79,11 +84,16 @@ const WorkVisuals = styled.figure`
   img { display: block; }
 `
 const WorkDescriptionCol = styled.article`
-  width: 40%;
-  padding: 3em;
+  padding: 1.5em;
   background-color: #ffffff;
-  border-left: 16px solid #1de9b6;
-  height: 100%;
+  border-left: 8px solid #1de9b6;
+
+  ${media.greaterThan('medium')`
+    border-left: 16px solid #1de9b6;
+    padding: 3em;
+    height: 100%;
+    width: 40%;
+  `}
 `
 const WorkInfo = styled.p`
   font-size: 0.9375em;

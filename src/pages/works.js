@@ -1,6 +1,7 @@
 import React from "react"
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import Title from '../components/TitleEl'
 
 const Section = styled.section`
@@ -9,17 +10,23 @@ const Section = styled.section`
   padding: 2em;
 `
 const TitleHeader = styled.div`
-  border-left: 16px solid #1de9b6;
-  padding: 2rem 3rem;
+  border-left: 8px solid #1de9b6;
+  padding: 1.5rem;
   margin: 0 auto;
   z-index: 1;
-  transform: translateX(-16px);
   background-color: #ffffff;
   display: inline-block;
+  transform: translateX(-8px);
+
+  ${media.greaterThan('medium')`
+    transform: translateX(-16px);
+    border-left: 16px solid #1de9b6;
+    padding: 2rem 3rem;
+  `}
 `
 const WorkCardWrap = styled.div`
   width: 100%;
-  margin: 4rem auto 0;
+  margin: 3rem auto 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -27,12 +34,20 @@ const WorkCardWrap = styled.div`
   position: relative;
   padding: 0;
   z-index: 5;
+
+  ${media.greaterThan('medium')`
+    margin: 4rem auto 0;
+  `}
 `
 const WorkCard = styled.div`
-  max-width: 31%;
   width: 100%;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   height: 100%;
+
+  ${media.greaterThan('medium')`
+    max-width: 31%;
+    margin: 0 0 1.5rem;
+  `}
 
   figure {
     margin: 0;

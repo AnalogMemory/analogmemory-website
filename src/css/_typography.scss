@@ -48,14 +48,18 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   @media ($medium-screen-up) {
     font-size: 3rem;
   }
 }
 h2 {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
+
+  @media ($medium-screen-up) {
+    font-size: 2.5rem;
+  }
 }
 h3 {
   font-size: 1.75rem;
@@ -72,8 +76,12 @@ h6 {
 
 p {
   margin: 0 0 $base-spacing;
-  font-size: 1.125rem;
   font-weight: $font-normal;
+  font-size: 1rem;
+
+  @media ($medium-screen-up) {
+    font-size: 1.125rem;
+  }
 }
 
 li {
@@ -86,6 +94,11 @@ a {
   text-decoration: none;
   border-bottom: 4px solid #1de9b6;
   transition: border $base-duration $base-timing, color $base-duration $base-timing;
+  font-size: 1rem;
+
+  @media ($medium-screen-up) {
+    font-size: 1.125rem;
+  }
 
   &:active,
   &:focus,

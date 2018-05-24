@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import Title from '../components/TitleEl'
 import ContactForm from '../components/ContactForm'
 
@@ -9,30 +10,44 @@ const Section = styled.section`
   padding: 2em;
 `
 const TitleHeader = styled.div`
-  border-left: 16px solid #1de9b6;
-  padding: 2rem 3rem;
+  border-left: 8px solid #1de9b6;
+  padding: 1.5rem;
   margin: 0 auto;
   z-index: 1;
-  transform: translateX(-16px);
   background-color: #ffffff;
   display: inline-block;
+  transform: translateX(-8px);
+
+  ${media.greaterThan('medium')`
+    transform: translateX(-16px);
+    border-left: 16px solid #1de9b6;
+    padding: 2rem 3rem;
+  `}
 `
 const Content = styled.div`
   width: 100%;
-  margin: 4rem auto 0;
+  margin: 3rem auto 0;
   display: flex;
   flex-wrap: wrap;
   border-top: none;
   position: relative;
   z-index: 2;
+
+  ${media.greaterThan('medium')`
+    margin: 4rem auto 0;
+  `}
 `
 const Col = styled.div`
-  max-width: 35%;
   width: 100%;
-  flex-basis: 35%;
-  margin: 0 2rem 0 0;
+  margin: 0 0 2rem 0;
   background-color: #ffffff;
   padding: 2rem;
+
+  ${media.greaterThan('medium')`
+    max-width: 35%;
+    flex-basis: 35%;
+    margin: 0 2rem 0 0;
+  `}
 `
 
 const ContactPage = props => {
