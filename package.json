@@ -5,6 +5,9 @@
   "author": "Alex <alex@analogmemory.xyz>",
   "repository": "https://github.com/AnalogMemory/analogmemory-website",
   "private": true,
+  "engines": {
+    "node": "^10"
+  },
   "dependencies": {
     "dotenv": "^5.0.1",
     "gatsby": "^1.9.261",
