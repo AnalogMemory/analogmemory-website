@@ -204,6 +204,7 @@ class ContactForm extends Component {
           </Label>
           <TextareaAutosizeStyled
             minRows={3}
+            name="message"
             onChange={this.handleInput}
             isActive={activeInput === `message` || this.state.message != ''}
             onFocus={() => this.handleFocus(`message`)}
