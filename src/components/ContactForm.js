@@ -141,7 +141,7 @@ class ContactForm extends Component {
   }
 
   isEmailValid = (email) => {
-    var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var regex = /[^@]+@[^.]+\..+/g;
     return regex.test(email);
   }
 
@@ -173,40 +173,40 @@ class ContactForm extends Component {
         <Title text={`Let’s Talk`} size={`h4`} />
         <input type="hidden" name="form-name" value="contact" />
         <FieldGroup>
-          <Label isActive={activeInput === `name` || this.state.name != ''}>
+          <Label isActive={activeInput === `name` || this.state.name !== ''}>
             Name
           </Label>
           <Input
             type="text"
             name="name"
             value={this.state.name}
-            isActive={activeInput === `name` || this.state.name != ''}
+            isActive={activeInput === `name` || this.state.name !== ''}
             onChange={this.handleInput}
             onFocus={() => this.handleFocus(`name`)}
             onBlur={this.handleBlur} />
         </FieldGroup>
         <FieldGroup>
-          <Label isActive={activeInput === `email` || this.state.email != ''}>
+          <Label isActive={activeInput === `email` || this.state.email !== ''}>
             Email
           </Label>
           <Input
             type="email"
             name="email"
             value={this.state.email}
-            isActive={activeInput === `email` || this.state.email != ''}
+            isActive={activeInput === `email` || this.state.email !== ''}
             onChange={this.handleInput}
             onFocus={() => this.handleFocus(`email`)}
             onBlur={this.handleBlur} />
         </FieldGroup>
         <FieldGroup>
-          <Label isActive={activeInput === `message` || this.state.message != ''}>
+          <Label isActive={activeInput === `message` || this.state.message !== ''}>
             Message
           </Label>
           <TextareaAutosizeStyled
             minRows={3}
             name="message"
             onChange={this.handleInput}
-            isActive={activeInput === `message` || this.state.message != ''}
+            isActive={activeInput === `message` || this.state.message !== ''}
             onFocus={() => this.handleFocus(`message`)}
             defaultValue={this.state.message} />
         </FieldGroup>

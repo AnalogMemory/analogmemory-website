@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import Header from '../components/Header'
+import Header from './Header'
 import 'normalize.css'
 import '../css/base.scss'
 
@@ -13,19 +13,19 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `
 
-const TemplateWrapper = ({ children }) => (
+const Layout = ({ children }) => (
   <Wrapper>
     <Helmet title="Analog Memory — Front-End Development"
             meta={[
               { name: 'description', content: 'Portfolio Website of Analog Memory. Front-End Developer based in San Francisco' },
             ]} />
     <Header/>
-    {children()}
+    {children}
   </Wrapper>
 )
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+Layout.propTypes = {
+  children: PropTypes.any,
 }
 
-export default TemplateWrapper
+export default Layout

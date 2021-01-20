@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Masthead from './Masthead'
@@ -37,7 +36,7 @@ const HeaderInner = styled.div`
   `}
 `
 
-const Header = ({ data }) => {
+const Header = () => {
   return (
     <HeaderContainer>
       <HeaderInner>

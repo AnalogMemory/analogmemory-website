@@ -1,7 +1,8 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Layout from '../components/Layout'
 import BgNoise from '../images/noise.svg'
 
 const Intro = styled.article`
@@ -47,10 +48,10 @@ const IndexPage = props => {
   const page = props.data.contentfulPage
   const workLink = `<a class="button" href="/works/">View Works</a>`
   return (
-    <div>
+    <Layout>
       <Intro dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html + workLink }} />
       <BackgroundNoise />
-    </div>
+    </Layout>
   )
 }
 
