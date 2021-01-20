@@ -1,6 +1,8 @@
 import React from "react"
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Layout from '../components/Layout'
 import Title from '../components/TitleEl'
 import ButtonLink from '../components/ButtonLink'
 
@@ -8,40 +10,42 @@ const WorkTemplate = props => {
   const work = props.data.contentfulWorks
 
   return (
-    <Section>
-      <WorkView key={work.id}>
-        <WorkVisualsCol>
-          {work.extraImages && work.extraImages.map(image => (
-            <WorkVisuals key={image.id}>
-              <img src={image.sizes.src} alt="" />
-            </WorkVisuals>
-          ))}
-        </WorkVisualsCol>
-        <WorkDescriptionCol>
-          <Title text={work.title} size={`h3`} />
-          {work.description &&
-            <p>
-              {work.description.description}
-            </p>
-          }
-          {work.projectType &&
-            <WorkInfo>
-              <strong>Project Type</strong>
-              <span dangerouslySetInnerHTML={{ __html: work.projectType.join(', ') }} />
-            </WorkInfo>
-          }
-          {work.projectTech &&
-            <WorkInfo>
-              <strong>Tech</strong>
-              <span dangerouslySetInnerHTML={{ __html: work.projectTech.join(', ') }} />
-            </WorkInfo>
-          }
-          {work.projectLinks && work.projectLinks.map(link => (
-            <ButtonLink key={link.id} link={link} />
-          ))}
-        </WorkDescriptionCol>
-      </WorkView>
-    </Section>
+    <Layout>
+      <Section>
+        <WorkView key={work.id}>
+          <WorkVisualsCol>
+            {work.extraImages && work.extraImages.map(image => (
+              <WorkVisuals key={image.id}>
+                <img src={image.sizes.src} alt="" />
+              </WorkVisuals>
+            ))}
+          </WorkVisualsCol>
+          <WorkDescriptionCol>
+            <Title text={work.title} size={`h3`} />
+            {work.description &&
+              <p>
+                {work.description.description}
+              </p>
+            }
+            {work.projectType &&
+              <WorkInfo>
+                <strong>Project Type</strong>
+                <span dangerouslySetInnerHTML={{ __html: work.projectType.join(', ') }} />
+              </WorkInfo>
+            }
+            {work.projectTech &&
+              <WorkInfo>
+                <strong>Tech</strong>
+                <span dangerouslySetInnerHTML={{ __html: work.projectTech.join(', ') }} />
+              </WorkInfo>
+            }
+            {work.projectLinks && work.projectLinks.map(link => (
+              <ButtonLink key={link.id} link={link} />
+            ))}
+          </WorkDescriptionCol>
+        </WorkView>
+      </Section>
+    </Layout>
   )
 }
 

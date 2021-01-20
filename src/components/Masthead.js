@@ -1,9 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
-import media from 'styled-media-query'
 import SVG from 'react-inlinesvg'
-import Title from './TitleEl'
 import logoFile from '../images/logo-analogmemory.svg'
 
 const MastheadStyled = styled.figure`
@@ -30,7 +28,7 @@ const MastheadLogo = styled(SVG)`
   }
 `
 
-const Masthead = props => {
+const Masthead = () => {
   return (
     <MastheadStyled>
       <MastheadLink to={`/`}>

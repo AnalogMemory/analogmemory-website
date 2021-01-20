@@ -1,7 +1,9 @@
 import React from "react"
-import Link from 'gatsby-link'
+import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Layout from '../components/Layout'
+
 import Title from '../components/TitleEl'
 
 const Section = styled.section`
@@ -87,44 +89,46 @@ const WorkCardInner = styled.div`
   position: relative;
 `
 
-const Works = props => {
-  const works_data = props.data.allContentfulWorks.edges
+const Works = ({ data }) => {
+  const works_data = data.allContentfulWorks.edges
   return (
-    <Section>
-      <TitleHeader>
-        <Title text={`Works`} size={`h1`} margin={`0`} transform={`uppercase`} />
-      </TitleHeader>
-      <WorkCardWrap>
-        {works_data.map(({ node: work }) => (
-          <WorkCard key={work.id} offset={work.role && work.role.length > 0}>
-            <WorkCardInner>
-              <figure>
-                <Link to={`/works/${work.slug}/`}>
-                  <img src={work.featuredImage.sizes.src} alt="" title={work.title}/>
-                </Link>
-              </figure>
-              <div className="copy">
-                <h3>
+    <Layout>
+      <Section>
+        <TitleHeader>
+          <Title text={`Works`} size={`h1`} margin={`0`} transform={`uppercase`} />
+        </TitleHeader>
+        <WorkCardWrap>
+          {works_data.map(({ node: work }) => (
+            <WorkCard key={work.id} offset={work.role && work.role.length > 0}>
+              <WorkCardInner>
+                <figure>
                   <Link to={`/works/${work.slug}/`}>
-                    {work.title}
+                    <img src={work.featuredImage.sizes.src} alt="" title={work.title}/>
                   </Link>
-                </h3>
-                {work.projectType &&
-                  <p
-                    className="project-type"
-                    dangerouslySetInnerHTML={{ __html: work.projectType.join(', ') }} />
-                }
-                {work.projectTech &&
-                  <p
-                    className="project-tech"
-                    dangerouslySetInnerHTML={{ __html: work.projectTech.join(', ') }} />
-                }
-              </div>
-            </WorkCardInner>
-          </WorkCard>
-        ))}
-      </WorkCardWrap>
-    </Section>
+                </figure>
+                <div className="copy">
+                  <h3>
+                    <Link to={`/works/${work.slug}/`}>
+                      {work.title}
+                    </Link>
+                  </h3>
+                  {work.projectType &&
+                    <p
+                      className="project-type"
+                      dangerouslySetInnerHTML={{ __html: work.projectType.join(', ') }} />
+                  }
+                  {work.projectTech &&
+                    <p
+                      className="project-tech"
+                      dangerouslySetInnerHTML={{ __html: work.projectTech.join(', ') }} />
+                  }
+                </div>
+              </WorkCardInner>
+            </WorkCard>
+          ))}
+        </WorkCardWrap>
+      </Section>
+    </Layout>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 
@@ -55,7 +55,7 @@ const NavLink = styled(Link)`
   }
 `
 
-const Nav = props => {
+const Nav = () => {
   const navData = [
     { "id": 1, "title": "Works", "path": "/works/" },
     { "id": 2, "title": "Contact", "path": "/contact/" }

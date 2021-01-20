@@ -1,6 +1,8 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Layout from '../components/Layout'
 import Title from '../components/TitleEl'
 import ContactForm from '../components/ContactForm'
 
@@ -53,19 +55,21 @@ const Col = styled.div`
 const ContactPage = props => {
   const page = props.data.contentfulPage
   return (
-    <Section>
-      <TitleHeader>
-        <Title text={page.title} size={`h1`} margin={`0`} transform={`uppercase`} />
-      </TitleHeader>
-      <Content>
-        <Col>
-          <article dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
-        </Col>
-        <Col>
-          <ContactForm />
-        </Col>
-      </Content>
-    </Section>
+    <Layout>
+      <Section>
+        <TitleHeader>
+          <Title text={page.title} size={`h1`} margin={`0`} transform={`uppercase`} />
+        </TitleHeader>
+        <Content>
+          <Col>
+            <article dangerouslySetInnerHTML={{ __html: page.copy.childMarkdownRemark.html }} />
+          </Col>
+          <Col>
+            <ContactForm />
+          </Col>
+        </Content>
+      </Section>
+    </Layout>
   )
 }
 
