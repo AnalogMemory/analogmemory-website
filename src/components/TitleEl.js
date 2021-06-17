@@ -25,7 +25,7 @@ const Title = ({ text, size, align, margin, transform, color }) => {
     `}
   `
   return (
-    <StyledTitle dangerouslySetInnerHTML={{ __html: text }} />
+    <StyledTitle>{text}</StyledTitle>
   )
 }
 
