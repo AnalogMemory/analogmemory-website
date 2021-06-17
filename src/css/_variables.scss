@@ -1,6 +1,8 @@
+@use "sass:math";
+
 // Typography
-$base-font-family: 'Space Mono', sans-serif;
-$heavy-font-family: 'Space Mono', sans-serif;
+$base-font-family: "Space Mono", sans-serif;
+$heavy-font-family: "Space Mono", sans-serif;
 
 // Font Sizes
 $root-font-size: 16px;
@@ -16,20 +18,20 @@ $heading-line-height: 1.2;
 
 // Other Sizes
 $base-spacing: $base-line-height * $base-font-size;
-$small-spacing: $base-spacing / 2;
+$small-spacing: math.div($base-spacing, 2);
 
 // Colors
-$white:            #ffffff;
-$black:            #131516;
-$dark-gray:        #373D3F;
-$medium-gray:      #707C80;
-$light-gray:       #050505;
-$lighter-gray:     #f2f3f4;
-$dark-red:         #660000;
-$alert:            #fff6bf;
-$error:            #fbe3e4;
-$notice:           #e5edf8;
-$success:          #e6efc2;
+$white: #ffffff;
+$black: #131516;
+$dark-gray: #373d3f;
+$medium-gray: #707c80;
+$light-gray: #050505;
+$lighter-gray: #f2f3f4;
+$dark-red: #660000;
+$alert: #fff6bf;
+$error: #fbe3e4;
+$notice: #e5edf8;
+$success: #e6efc2;
 
 // Font Colors
 $base-font-color: $dark-gray;
