@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from 'gatsby'
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Layout from '../components/Layout'
@@ -14,39 +15,37 @@ const WorkTemplate = props => {
       <Section>
         <WorkView key={work.id}>
           <WorkVisualsCol>
-            {work.extraImages && work.extraImages.map(image => (
-              <WorkVisuals key={image.id}>
-                <img src={image.sizes.src} alt="" />
-              </WorkVisuals>
-            ))}
+            {work.extraImages &&
+              work.extraImages.map((image) => (
+                <WorkVisuals key={image.id}>
+                  <GatsbyImage image={image.gatsbyImageData} alt="" />
+                </WorkVisuals>
+              ))}
           </WorkVisualsCol>
           <WorkDescriptionCol>
             <Title text={work.title} size={`h3`} />
-            {work.description &&
-              <p>
-                {work.description.description}
-              </p>
-            }
-            {work.projectType &&
+            {work.description && <p>{work.description.description}</p>}
+            {work.projectType && (
               <WorkInfo>
                 <strong>Project Type</strong>
-                <span dangerouslySetInnerHTML={{ __html: work.projectType.join(', ') }} />
+                <span>{work.projectType.join(", ")}</span>
               </WorkInfo>
-            }
-            {work.projectTech &&
+            )}
+            {work.projectTech && (
               <WorkInfo>
                 <strong>Tech</strong>
-                <span dangerouslySetInnerHTML={{ __html: work.projectTech.join(', ') }} />
+                <span>{work.projectTech.join(", ")}</span>
               </WorkInfo>
-            }
-            {work.projectLinks && work.projectLinks.map(link => (
-              <ButtonLink key={link.id} link={link} />
-            ))}
+            )}
+            {work.projectLinks &&
+              work.projectLinks.map((link) => (
+                <ButtonLink key={link.id} link={link} />
+              ))}
           </WorkDescriptionCol>
         </WorkView>
       </Section>
     </Layout>
-  )
+  );
 }
 
 
@@ -113,17 +112,13 @@ export default WorkTemplate
 
 export const workQuery = graphql`
   query currentWorkQuery($id: String!) {
-    contentfulWorks(id: {eq: $id})  {
+    contentfulWorks(id: { eq: $id }) {
       id
       title
       slug
       extraImages {
         id
-        sizes(maxWidth: 1600, quality: 60) {
-          sizes
-          src
-          srcSet
-        }
+        gatsbyImageData(width: 1600)
       }
       description {
         description
@@ -138,4 +133,4 @@ export const workQuery = graphql`
       }
     }
   }
-`
+`;

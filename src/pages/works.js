@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from 'gatsby'
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Layout from '../components/Layout'
@@ -95,7 +96,12 @@ const Works = ({ data }) => {
     <Layout>
       <Section>
         <TitleHeader>
-          <Title text={`Works`} size={`h1`} margin={`0`} transform={`uppercase`} />
+          <Title
+            text={`Works`}
+            size={`h1`}
+            margin={`0`}
+            transform={`uppercase`}
+          />
         </TitleHeader>
         <WorkCardWrap>
           {works_data.map(({ node: work }) => (
@@ -103,25 +109,29 @@ const Works = ({ data }) => {
               <WorkCardInner>
                 <figure>
                   <Link to={`/works/${work.slug}/`}>
-                    <img src={work.featuredImage.sizes.src} alt="" title={work.title}/>
+                    <GatsbyImage
+                      image={
+                        work.featuredImage.gatsbyImageData
+                      }
+                      alt=""
+                      title={work.title}
+                    />
                   </Link>
                 </figure>
                 <div className="copy">
                   <h3>
-                    <Link to={`/works/${work.slug}/`}>
-                      {work.title}
-                    </Link>
+                    <Link to={`/works/${work.slug}/`}>{work.title}</Link>
                   </h3>
-                  {work.projectType &&
-                    <p
-                      className="project-type"
-                      dangerouslySetInnerHTML={{ __html: work.projectType.join(', ') }} />
-                  }
-                  {work.projectTech &&
-                    <p
-                      className="project-tech"
-                      dangerouslySetInnerHTML={{ __html: work.projectTech.join(', ') }} />
-                  }
+                  {work.projectType && (
+                    <p className="project-type">
+                      {work.projectType.join(", ")}
+                    </p>
+                  )}
+                  {work.projectTech && (
+                    <p className="project-tech">
+                      {work.projectTech.join(", ")}
+                    </p>
+                  )}
                 </div>
               </WorkCardInner>
             </WorkCard>
@@ -129,7 +139,7 @@ const Works = ({ data }) => {
         </WorkCardWrap>
       </Section>
     </Layout>
-  )
+  );
 }
 
 export default Works
@@ -143,11 +153,7 @@ export const worksQuery = graphql`
           title
           slug
           featuredImage {
-            sizes(maxWidth: 1600, quality: 60) {
-              sizes
-              src
-              srcSet
-            }
+            gatsbyImageData(width: 1600)
           }
           projectType
           projectTech
@@ -155,4 +161,4 @@ export const worksQuery = graphql`
       }
     }
   }
-`
+`;
